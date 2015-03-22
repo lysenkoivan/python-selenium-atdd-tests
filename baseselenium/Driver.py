@@ -5,7 +5,6 @@ from urlparse import urljoin
 
 from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 from baseselenium.SeleniumParameters import SeleniumParameters
 from baseselenium.SeleniumWrappers import WebDriverWrapperFirefox, WebDriverWrapperChrome, WebDriverWrapperIe, \
