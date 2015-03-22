@@ -29,7 +29,7 @@ class MainPage(BasePageObject):
     search = SimpleElement(By.NAME, "q")
 
     def __init__(self):
-        super(BasePageObject, MainPage).__init__()
+        super(MainPage, self).__init__()
         self.elements = {
             "Explore": self.explore,
             "SignIn": self.signin,
@@ -48,7 +48,7 @@ class SigninPage(BasePageObject):
     error_msg = SimpleElement(By.CSS_SELECTOR, ".flash-error")
 
     def __init__(self):
-        super(BasePageObject, MainPage).__init__()
+        super(SigninPage, self).__init__()
         self.elements = {
             "Username": self.username,
             "Password": self.password,
