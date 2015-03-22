@@ -9,7 +9,7 @@ __author__ = 'lysenkoivan'
 @given('user is on "{page}"')
 def step_impl(context, page):
     context.cur_page = get_page_by_name(page)
-    context.cur_page.open()
+    context.cur_page().open()
 
 
 @when("user clicks on {element}")
