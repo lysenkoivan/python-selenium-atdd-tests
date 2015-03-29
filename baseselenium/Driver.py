@@ -64,7 +64,7 @@ class Driver(object):
     def open_page(cls, url=None, url_parameters=()):
         if url is None:
             full_url = SeleniumParameters.get_base_url()
-        elif url.startswith("http://"):
+        elif url.startswith("http://") or url.startswith("https://"):
             full_url = url
         else:
             full_url = urljoin(SeleniumParameters.get_base_url(), url)

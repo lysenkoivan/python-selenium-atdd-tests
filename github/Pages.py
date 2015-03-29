@@ -2,14 +2,17 @@ __author__ = 'Ivan Lysenko'
 
 import sys
 
-from baseselenium.BaseObjects import BasePageObject, SimpleElement
 from selenium.webdriver.common.by import By
+
+from baseselenium.BaseObjects import BasePageObject, SimpleElement
+from baseselenium.Driver import Driver
 # from Elements import *
 
 
 def open_page_by_name(name):
     page = getattr(sys.modules[__name__], name)
-    page().open()
+
+    Driver.open_page(page.url)
 
     return page()
 
@@ -25,7 +28,7 @@ class MainPage(BasePageObject):
     name = "MainPage"
 
     explore = SimpleElement(By.XPATH, "//li[@class='header-nav-item']/a[text()='Explore']")
-    signin = SimpleElement(By.XPATH, "//div[@class='header-actions']/a[text()='Sign In']")
+    signin = SimpleElement(By.XPATH, "//div[@class='header-actions']/a[text()='Sign in']")
     search = SimpleElement(By.NAME, "q")
 
     def __init__(self):

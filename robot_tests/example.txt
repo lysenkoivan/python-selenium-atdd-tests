@@ -1,0 +1,35 @@
+*** Settings ***
+Documentation     Sign In Tests
+Library           robot_tests.TestSteps
+Library           robot_tests.CommonLibrary
+Test Setup        Init Driver
+Test Teardown     Driver Teardown
+
+*** Test Cases ***
+Open Login Page
+  Given user is on "MainPage"
+  When user clicks on "SignIn"
+  Then user sees "SignIn button"
+
+Scenario: user fails to sign in
+  Given user is on "SigninPage"
+  When user types "test_username" in "Username"
+  And user types "test_password" in "Password"
+  And user clicks on "SignIn button"
+  Then user sees "Incorrect username or password." in "Error message"
+
+*** Keywords ***
+user is on "${page}"
+  On Page    ${page}
+
+user clicks on "${element}"
+  Click On    ${element}
+
+user sees "${element}"
+  Check Element    ${element}
+
+user types "${text}" in "${element}"
+  Type In    ${text}    ${element}
+
+user sees "${text}" in "${element}"
+  Check In    ${text}    ${element}
